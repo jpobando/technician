@@ -21,4 +21,8 @@ public class ServiceUseCase {
     public List<Service> getAllServices(){
         return serviceRepository.getAllServices();
     }
+
+    public Service getServiceById(Integer id){
+        return serviceRepository.getServiceById(id);
+    }
 }

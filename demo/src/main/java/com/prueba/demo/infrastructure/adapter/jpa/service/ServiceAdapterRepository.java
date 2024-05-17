@@ -39,6 +39,15 @@ public class ServiceAdapterRepository implements IServiceRepository {
     }
 
     @Override
+    public Service getServiceById(Integer id) {
+        Optional<ServiceDbo> serviceDbo = iServiceAdapterRepository.findById(id);
+        if(serviceDbo.isEmpty()){
+            throw new BusinessException("No se encuentra registrado el servicio");
+        }
+        return ServiceDbo.toDomain(serviceDbo.get());
+    }
+
+    @Override
     public List<Service> getAllServices() {
         return iServiceAdapterRepository.findAll().stream().map(ServiceDbo::toDomain).toList();
     }
