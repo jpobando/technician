@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
+@Table(name = "tbl_service", schema = "public")
 public class ServiceDbo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +32,7 @@ public class ServiceDbo {
                 new Description(serviceDbo.getDescription()),
                 new DateTimeInit(serviceDbo.getDateTimeInit()),
                 new DateTimeEnd(serviceDbo.getDateTimeEnd()),
-                new ServiceTechnicianId(serviceDbo.getServiceId())
+                new ServiceTechnicianId(serviceDbo.getTechnicianDbo().getTechnicianId())
         );
     }
 

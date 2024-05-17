@@ -4,10 +4,7 @@ package com.prueba.demo.infrastructure.adapter.jpa.entity;
 import com.prueba.demo.domain.model.Technician.Name;
 import com.prueba.demo.domain.model.Technician.Technician;
 import com.prueba.demo.domain.model.Technician.TechnicianId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Builder
+@Table(name = "tbl_technician", schema = "public")
 public class TechnicianDbo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
